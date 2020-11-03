@@ -3,6 +3,8 @@ from app import db, login
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Length
 
 @login.user_loader
 def load_user(id):

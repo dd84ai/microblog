@@ -12,23 +12,10 @@ from datetime import datetime
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'Эльдар Рязанов'}
+    user = User.query.filter_by(username='123').first_or_404()
     posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }, 
-        {
-            'author': {'username': 'Ипполит'},
-            'body': 'Какая гадость эта ваша заливная рыба!!'
-        }, 
-        {
-            'author': {'username': 'Бульк!'},
-            'body': 'Великий бульк!!'}
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'}
     ]
     return render_template('index.html', title='Home', posts=posts)
 	

@@ -63,8 +63,8 @@ def user(username):
         {'author': user, 'body': 'Test post #1'},
         {'author': user, 'body': 'Test post #2'}
     ]
-    return render_template('user.html', user=user, posts=posts)
-	
+    return render_template('user.html', user=user, posts=posts)	
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -95,7 +95,15 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-	
+
+@app.route('/geterror')
+def geterror():
+    er = User(username='123',email='123@gmail.com')
+    db.session.add(er)
+    db.commit()
+    return redirect(url_for('index'))
+    #return redirect(url_for('geterror'))
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:

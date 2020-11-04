@@ -1,0 +1,85 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-11-04 19:29+0700\n"
+"PO-Revision-Date: 2020-11-04 14:22+0700\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: app/__init__.py:21
+msgid "Please log in to access this page."
+msgstr ""
+
+#: app/forms.py:8
+msgid "Username"
+msgstr ""
+
+#: app/templates/404.html:4
+msgid "This is not the page you are looking for!"
+msgstr "Испанский перевод не найденной страницы!"
+
+#: app/templates/_post.html:12
+msgid "said"
+msgstr ""
+
+#: app/templates/base.html:16
+msgid "Microblog"
+msgstr "Испанблог"
+
+#: app/templates/base.html:20
+msgid "Home"
+msgstr ""
+
+#: app/templates/base.html:21
+msgid "Get Error"
+msgstr ""
+
+#: app/templates/base.html:25
+msgid "Login"
+msgstr ""
+
+#: app/templates/base.html:26
+msgid "Click to Register!"
+msgstr ""
+
+#: app/templates/base.html:28
+msgid "Profile"
+msgstr ""
+
+#: app/templates/base.html:29
+msgid "Logout"
+msgstr ""
+
+#: app/templates/index.html:5
+msgid "Hi"
+msgstr ""
+
+#: app/templates/index.html:19
+msgid "Newer posts"
+msgstr ""
+
+#: app/templates/index.html:24
+msgid "Older posts"
+msgstr ""
+
+#~ msgid "%(username)s said %(when)s"
+#~ msgstr ""
+
+#~ msgid "Hi, %(username)s!"
+#~ msgstr "Хола, %(username)s!"
+
+#~ msgid "Hi,"
+#~ msgstr ""
+

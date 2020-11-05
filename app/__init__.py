@@ -8,6 +8,7 @@ from flask_moment import Moment
 from flask_babel import Babel
 from flask_babel import _
 from flask_babel import lazy_gettext as _l
+from flask import render_template, url_for, jsonify
 
 from flask import g
 from flask_babel import get_locale
@@ -22,6 +23,7 @@ login.login_message = _l('Please log in to access this page.')
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
+app.config['JSON_AS_ASCII'] = False
 
 @babel.localeselector
 def get_locale():

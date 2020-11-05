@@ -8,6 +8,8 @@ from werkzeug.urls import url_parse
 from app.forms import RegistrationForm, EditProfileForm
 from datetime import datetime
 from guess_language import guess_language
+from flask import jsonify
+from app.translate import translate
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -23,6 +25,12 @@ def index():
 		post.language=language	
 					
 	return render_template('index.html', title='Home', posts=posts)
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(request.form['text'],
+                                      request.form['dest_language'])})
 	
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required

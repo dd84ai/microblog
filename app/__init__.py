@@ -24,7 +24,7 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
 app.config['JSON_AS_ASCII'] = False
-
+	
 @babel.localeselector
 def get_locale():
 	return request.accept_languages.best_match(app.config['LANGUAGES'])

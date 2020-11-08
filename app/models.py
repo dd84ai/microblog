@@ -5,7 +5,7 @@ from flask import url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
 from wtforms import StringField, TextAreaField, SubmitField
-from wtforms.validators import 	Required, Length
+from wtforms.validators import DataRequired, Length
 
 @login.user_loader
 def load_user(id):

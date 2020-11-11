@@ -19,6 +19,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url_for('index') }}">{{ _('Home')}}</a></li>
 					<li><a href="{{ url_for('geterror') }}">{{ _('Get Error')}}</a></li>
+					<li><a href="{{ url_for('google_search') }}">{{ _('Search')}}</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					{% if current_user.is_anonymous %}

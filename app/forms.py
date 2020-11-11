@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 from flask_babel import lazy_gettext as _l
@@ -42,3 +42,14 @@ class EditProfileForm(FlaskForm):
 			user = User.query.filter_by(username=self.username.data).first()
 			if user is not None:
 				raise ValidationError('Please use a different username.')
+
+				
+class SearchForm(FlaskForm):
+	Countries = ['Russian federation', 'United states', 'China', 'Africa']
+	Languages = ['Russian', 'English', 'Chineese']
+	
+	country_field = SelectField(u'Country to search', choices = Countries, validators = [DataRequired()])
+	language_field = SelectField(u'Language', choices = Languages, validators = [DataRequired()])
+	search_field = StringField('Insert Request', validators=[DataRequired()])
+	submit = SubmitField('Search')
+		

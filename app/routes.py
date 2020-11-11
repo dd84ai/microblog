@@ -5,11 +5,13 @@ from app.forms import LoginForm
 from flask_login import current_user, login_user, logout_user,  login_required
 from app.models import User
 from werkzeug.urls import url_parse
-from app.forms import RegistrationForm, EditProfileForm
+from app.forms import RegistrationForm, EditProfileForm, SearchForm
 from datetime import datetime
 from guess_language import guess_language
 from flask import jsonify
 from app.translate import translate
+from googleapiclient.discovery import build
+import pprint
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -100,6 +102,22 @@ def geterror():
 	db.commit()
 	return redirect(url_for('index'))
 	#return redirect(url_for('geterror'))
+	
+@app.route('/google_search', methods=['GET', 'POST'])
+def google_search():
+	form = SearchForm()	
+	res=''
+	if form.validate_on_submit():
+		flash('Searching: ' + form.search_field.data)
+		service = build("customsearch", "v1",developerKey=app.config['GOOGLE_DEV_KEY'])
+		res = service.cse().list(
+			q=form.search_field.data,
+			cx='017576662512468239146:omuauf_lfve',
+			).execute()
+		#results = pprint.pprint(res)
+		
+	return render_template('google_search/google_search.html', title='Search', form=form, res=res)
+	#return redirect(url_for('google_search'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

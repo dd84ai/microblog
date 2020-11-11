@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+	<form action="" method="post" name="SearchForm">
+    {{form.hidden_tag()}}
+	<p>
+			{{ form.country_field.label }}<br>
+			{{ form.country_field() }}<br>
+	</p>
+	<p>
+			{{ form.language_field.label }}<br>
+			{{ form.language_field() }}<br>
+	</p>
+	<p>
+			{{ form.search_field.label }}<br>
+			{{ form.search_field(size=32) }}<br>
+			{% for error in form.search_field.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+	</p>
+	<p>{{ form.submit() }}</p>
+	</form>
+	
+	<br>
+	{% for result in res['items'] %}
+			<a href={{result['link']}}>{{ result['title'] }}</a><br>
+			{{ result['snippet'] }}<br><br>
+	{% endfor %}
+	
+	
+{% endblock %}
